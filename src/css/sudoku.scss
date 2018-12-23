@@ -1,0 +1,78 @@
+@import "compass/css3";
+
+
+$borderColor: #ededed;
+$cellWidth: 90px;
+$gameWidth: 810px;
+#sudoku-game {
+    position: relative;
+    box-sizing: border-box;
+    * {
+        box-sizing: border-box;
+    }
+    width: calc(270px + 50vw);
+    height: calc(270px + 50vw);
+    max-width: $gameWidth;
+    max-height: $gameWidth;
+    margin: auto;
+    .cell {
+        width: calc(30px + 50vw/9);
+        height: calc(30px + 50vw/9);
+        max-width: $cellWidth;
+        max-height: $cellWidth;
+        font-size: 32px;
+        border: 1px solid $borderColor;
+        float: left;
+        display: table;
+        vertical-align: middle;
+        text-align: center;
+        cursor: pointer;
+        span {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+    
+    .line {
+        position: absolute;
+        z-index: 1;
+        &.vr-line {
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            height: 100%;
+            background-color: black;
+            left: calc((100%/3) - 2px);
+            & + .vr-line {
+                left: calc((200%/3) - 2px);
+            }
+        }
+        &.hr-line {
+            left: 0;
+            right: 0;
+            height: 3px;
+            width: 100%;
+            background-color: black;
+            top: calc((100%/3) - 2px);
+            & + .hr-line {
+                top: calc((200%/3) - 2px);
+            }
+        }
+    }
+    
+    &:after {
+        content: "";
+        display: block;
+        clear: both;
+    }
+}
+
+#game-actions {
+    text-align: center;
+    padding: 20px;
+    button {
+        margin: 10px;
+    }
+}
+
+

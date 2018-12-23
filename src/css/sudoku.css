@@ -1,0 +1,80 @@
+/* line 7, sudoku.scss */
+#sudoku-game {
+  position: relative;
+  box-sizing: border-box;
+  width: calc(270px + 50vw);
+  height: calc(270px + 50vw);
+  max-width: 810px;
+  max-height: 810px;
+  margin: auto;
+}
+/* line 10, sudoku.scss */
+#sudoku-game * {
+  box-sizing: border-box;
+}
+/* line 18, sudoku.scss */
+#sudoku-game .cell {
+  width: calc(30px + 50vw/9);
+  height: calc(30px + 50vw/9);
+  max-width: 90px;
+  max-height: 90px;
+  font-size: 32px;
+  border: 1px solid #ededed;
+  float: left;
+  display: table;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+}
+/* line 30, sudoku.scss */
+#sudoku-game .cell span {
+  display: table-cell;
+  vertical-align: middle;
+}
+/* line 36, sudoku.scss */
+#sudoku-game .line {
+  position: absolute;
+  z-index: 1;
+}
+/* line 39, sudoku.scss */
+#sudoku-game .line.vr-line {
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  height: 100%;
+  background-color: black;
+  left: calc((100%/3) - 2px);
+}
+/* line 46, sudoku.scss */
+#sudoku-game .line.vr-line + .vr-line {
+  left: calc((200%/3) - 2px);
+}
+/* line 50, sudoku.scss */
+#sudoku-game .line.hr-line {
+  left: 0;
+  right: 0;
+  height: 3px;
+  width: 100%;
+  background-color: black;
+  top: calc((100%/3) - 2px);
+}
+/* line 57, sudoku.scss */
+#sudoku-game .line.hr-line + .hr-line {
+  top: calc((200%/3) - 2px);
+}
+/* line 63, sudoku.scss */
+#sudoku-game:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* line 70, sudoku.scss */
+#game-actions {
+  text-align: center;
+  padding: 20px;
+}
+/* line 73, sudoku.scss */
+#game-actions button {
+  margin: 10px;
+}

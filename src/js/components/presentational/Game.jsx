@@ -2,38 +2,36 @@ import React from 'react';
 import PropTypes from "prop-types";
 import CellContainer from '../container/CellContainer';
 
-const Game = ({gameBoard, initGameBoard, resetGame, updateGameboard}) => (
-    <div>
-        <label>Sudoku Game</label>
+
+const Game = ({gameBoard, initGameBoard, updateGameboard, getCellStatus}) => (
+    <React.Fragment>
+
         <div id="sudoku-game">
             <span className="line hr-line" />
             <span className="line hr-line" />
             <span className="line vr-line" />
             <span className="line vr-line" />
         {
-
+            gameBoard.length !== 0 ? (
             initGameBoard.map((list, rowId) => (
                 list.map((numero, colId) => (
-                    <CellContainer key={"cell-" + rowId + "-"+colId}  numero={gameBoard[rowId][colId]} type={numero} rowId={rowId} colId={colId} updateGameboard={updateGameboard}/>
+                    <CellContainer getCellStatus={getCellStatus} key={"cell-" + rowId + "-"+colId}  numero={gameBoard[rowId][colId]} type={numero} rowId={rowId} colId={colId} updateGameboard={updateGameboard}/>
                 ))
-            ))
+            ))) : (
+                <div id="sudoku-init">
+                    Please click button below to start new game.
+                </div>
+            )
         }
         </div>
-        <div id="game-actions">
-            <button className="btn waves-effect waves-light" type="submit" name="action">Solve
-                <i className="material-icons right">tag_faces</i>
-            </button>
-            <button className="btn waves-effect waves-light" type="submit" name="action" onClick={resetGame}>New Game
-                <i className="material-icons right">refresh</i>
-            </button>
-        </div>
-    </div>
+
+    </React.Fragment>
 );
 
 Game.prototype = {
     initGameBoard: PropTypes.array.isRequired,
     gameBoard: PropTypes.array.isRequired,
-    resetGame: PropTypes.func.isRequired,
+    getCellStatus: PropTypes.func.isRequired,
     updateGameboard: PropTypes.func.isRequired
 }
 

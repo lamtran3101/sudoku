@@ -7,13 +7,14 @@ class CellContainer extends Component {
         super(props);
         this.state = {
             updateGameboard: props.updateGameboard,
+            getCellStatus: props.getCellStatus,
             numero: props.numero,
             rowId: props.rowId,
             colId: props.colId,
-            status: 0,
             type: props.type
         };
         this.handleChange = this.handleChange.bind(this);
+        this.handleFocus = this.handleFocus.bind(this);
     }
 
     handleChange(event) {
@@ -27,11 +28,16 @@ class CellContainer extends Component {
         }
     }
 
+    handleFocus(event) {
+        event.target.select();
+    }
+
     render() {
-        const {rowId, colId, numero, type} = this.state;
+        const {rowId, colId, numero, type, getCellStatus} = this.state;
+        const status = getCellStatus(rowId, colId, numero);
         return (
             type === 0 ? (
-                <Input rowId={rowId} colId={colId} numero={numero === 0 ? "" : numero} handleChange={this.handleChange}/>
+                <Input status={status} rowId={rowId} colId={colId} numero={numero === 0 ? "" : numero} handleChange={this.handleChange} handleFocus={this.handleFocus}/>
             ) : (
                 <Cell rowId={rowId} colId={colId} numero={numero} type={type}/>
             )

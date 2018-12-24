@@ -1,10 +1,43 @@
 @import "compass/css3";
+
+
 $borderColor: #ededed;
 $spanColor: #333;
 $inputColor: #888;
 $hoverColor:#2098D1;
 $cellWidth: 60px;
 $gameWidth: 540px;
+
+header {
+    .logo {
+        @include flex-grow(1);
+    }
+}
+.info {
+    text-align: center;
+}
+#game-layout {
+    @include display-flex;
+    @include justify-content(center);
+    @include align-items(flex-start);
+}
+#gamePanel {
+    width: 320px;
+    max-width: 100%;
+    padding: 0 15px;
+    .listaRadios {
+        @include display-flex;
+        @include justify-content(center);
+        label {
+            width: 50%;
+        }
+    }
+    
+    button {
+        display: block;
+        margin: 1em;
+    }
+}
 #sudoku-game {
     position: relative;
     box-sizing: border-box;
@@ -17,6 +50,22 @@ $gameWidth: 540px;
     max-height: $gameWidth;
     margin: auto;
     border :3px solid black;
+    #sudoku-init {
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 0;
+        bottom: 0;
+        font-size: 32px;
+        text-align: center;
+        @include display-flex;
+        @include justify-content(center);
+        @include align-items(center);
+        padding: 30px;
+        background: #ee6e73;
+        z-index: 2;
+    }
+    
     .cell {
         width: (100% / 9);
         height: auto;
@@ -69,8 +118,19 @@ $gameWidth: 540px;
     
             }
         }
+        
         span.numero {
             color: $spanColor;
+        }
+        
+        &.error {
+            input {
+                color: red;
+                font-weight: bold;
+                &:focus, &:hover {
+                    color: red;
+                }
+            }
         }
     }
     .line {

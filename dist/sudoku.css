@@ -1,4 +1,48 @@
-/* line 8, ../src/css/sudoku.scss */
+/* line 12, ../src/css/sudoku.scss */
+header .logo {
+  -webkit-flex-grow: 1;
+  flex-grow: 1;
+}
+
+/* line 16, ../src/css/sudoku.scss */
+.info {
+  text-align: center;
+}
+
+/* line 19, ../src/css/sudoku.scss */
+#game-layout {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: flex-start;
+  align-items: flex-start;
+}
+
+/* line 24, ../src/css/sudoku.scss */
+#gamePanel {
+  width: 320px;
+  max-width: 100%;
+  padding: 0 15px;
+}
+/* line 28, ../src/css/sudoku.scss */
+#gamePanel .listaRadios {
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+}
+/* line 31, ../src/css/sudoku.scss */
+#gamePanel .listaRadios label {
+  width: 50%;
+}
+/* line 36, ../src/css/sudoku.scss */
+#gamePanel button {
+  display: block;
+  margin: 1em;
+}
+
+/* line 41, ../src/css/sudoku.scss */
 #sudoku-game {
   position: relative;
   box-sizing: border-box;
@@ -9,11 +53,30 @@
   margin: auto;
   border: 3px solid black;
 }
-/* line 11, ../src/css/sudoku.scss */
+/* line 44, ../src/css/sudoku.scss */
 #sudoku-game * {
   box-sizing: border-box;
 }
-/* line 20, ../src/css/sudoku.scss */
+/* line 53, ../src/css/sudoku.scss */
+#sudoku-game #sudoku-init {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  font-size: 32px;
+  text-align: center;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  padding: 30px;
+  background: #ee6e73;
+  z-index: 2;
+}
+/* line 69, ../src/css/sudoku.scss */
 #sudoku-game .cell {
   width: 11.11111%;
   height: auto;
@@ -28,13 +91,13 @@
   text-align: center;
   cursor: pointer;
 }
-/* line 33, ../src/css/sudoku.scss */
+/* line 82, ../src/css/sudoku.scss */
 #sudoku-game .cell .cell-content {
   display: block;
   width: 100%;
   padding-top: 100%;
 }
-/* line 39, ../src/css/sudoku.scss */
+/* line 88, ../src/css/sudoku.scss */
 #sudoku-game .cell .numero {
   position: absolute;
   left: 0;
@@ -52,7 +115,7 @@
   -webkit-user-select: none;
   user-select: none;
 }
-/* line 49, ../src/css/sudoku.scss */
+/* line 98, ../src/css/sudoku.scss */
 #sudoku-game .cell .numero input {
   margin: 0;
   border: 0;
@@ -65,26 +128,35 @@
   box-shadow: none;
   color: #888;
 }
-/* line 60, ../src/css/sudoku.scss */
+/* line 109, ../src/css/sudoku.scss */
 #sudoku-game .cell .numero input:focus, #sudoku-game .cell .numero input:active, #sudoku-game .cell .numero input:hover {
   box-shadow: none;
   border: 0;
 }
-/* line 65, ../src/css/sudoku.scss */
+/* line 114, ../src/css/sudoku.scss */
 #sudoku-game .cell .numero input:focus, #sudoku-game .cell .numero input:hover {
   color: white;
   background-color: #2098D1;
 }
-/* line 72, ../src/css/sudoku.scss */
+/* line 122, ../src/css/sudoku.scss */
 #sudoku-game .cell span.numero {
   color: #333;
 }
-/* line 76, ../src/css/sudoku.scss */
+/* line 127, ../src/css/sudoku.scss */
+#sudoku-game .cell.error input {
+  color: red;
+  font-weight: bold;
+}
+/* line 130, ../src/css/sudoku.scss */
+#sudoku-game .cell.error input:focus, #sudoku-game .cell.error input:hover {
+  color: red;
+}
+/* line 136, ../src/css/sudoku.scss */
 #sudoku-game .line {
   position: absolute;
   z-index: 1;
 }
-/* line 79, ../src/css/sudoku.scss */
+/* line 139, ../src/css/sudoku.scss */
 #sudoku-game .line.vr-line {
   top: 0;
   bottom: 0;
@@ -93,11 +165,11 @@
   background-color: black;
   left: calc((100%/3) - 2px);
 }
-/* line 86, ../src/css/sudoku.scss */
+/* line 146, ../src/css/sudoku.scss */
 #sudoku-game .line.vr-line + .vr-line {
   left: calc((200%/3) - 2px);
 }
-/* line 90, ../src/css/sudoku.scss */
+/* line 150, ../src/css/sudoku.scss */
 #sudoku-game .line.hr-line {
   left: 0;
   right: 0;
@@ -106,23 +178,23 @@
   background-color: black;
   top: calc((100%/3) - 2px);
 }
-/* line 97, ../src/css/sudoku.scss */
+/* line 157, ../src/css/sudoku.scss */
 #sudoku-game .line.hr-line + .hr-line {
   top: calc((200%/3) - 2px);
 }
-/* line 103, ../src/css/sudoku.scss */
+/* line 163, ../src/css/sudoku.scss */
 #sudoku-game:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* line 110, ../src/css/sudoku.scss */
+/* line 170, ../src/css/sudoku.scss */
 #game-actions {
   text-align: center;
   padding: 20px;
 }
-/* line 113, ../src/css/sudoku.scss */
+/* line 173, ../src/css/sudoku.scss */
 #game-actions button {
   margin: 10px;
 }

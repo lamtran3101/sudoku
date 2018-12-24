@@ -2,41 +2,89 @@
 #sudoku-game {
   position: relative;
   box-sizing: border-box;
-  width: calc(270px + 50vw);
-  height: calc(270px + 50vw);
-  max-width: 810px;
-  max-height: 810px;
+  width: calc(270px + 30vw);
+  height: calc(270px + 30vw);
+  max-width: 540px;
+  max-height: 540px;
   margin: auto;
+  border: 3px solid black;
 }
 /* line 11, ../src/css/sudoku.scss */
 #sudoku-game * {
   box-sizing: border-box;
 }
-/* line 19, ../src/css/sudoku.scss */
+/* line 20, ../src/css/sudoku.scss */
 #sudoku-game .cell {
-  width: calc(30px + 50vw/9);
-  height: calc(30px + 50vw/9);
-  max-width: 90px;
-  max-height: 90px;
+  width: 11.11111%;
+  height: auto;
+  max-width: 60px;
+  max-height: 60px;
   font-size: 32px;
-  border: 1px solid #ededed;
+  border-left: 1px solid #ededed;
+  border-bottom: 1px solid #ededed;
   float: left;
-  display: table;
+  display: block;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
 }
-/* line 31, ../src/css/sudoku.scss */
-#sudoku-game .cell span {
-  display: table-cell;
-  vertical-align: middle;
+/* line 33, ../src/css/sudoku.scss */
+#sudoku-game .cell .cell-content {
+  display: block;
+  width: 100%;
+  padding-top: 100%;
 }
-/* line 37, ../src/css/sudoku.scss */
+/* line 39, ../src/css/sudoku.scss */
+#sudoku-game .cell .numero {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  display: -webkit-flex;
+  display: flex;
+  -webkit-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  align-items: center;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+/* line 49, ../src/css/sudoku.scss */
+#sudoku-game .cell .numero input {
+  margin: 0;
+  border: 0;
+  text-align: center;
+  font-size: 32px;
+  height: 100%;
+  transition: none;
+  cursor: pointer;
+  font-family: inherit;
+  box-shadow: none;
+  color: #888;
+}
+/* line 60, ../src/css/sudoku.scss */
+#sudoku-game .cell .numero input:focus, #sudoku-game .cell .numero input:active, #sudoku-game .cell .numero input:hover {
+  box-shadow: none;
+  border: 0;
+}
+/* line 65, ../src/css/sudoku.scss */
+#sudoku-game .cell .numero input:focus, #sudoku-game .cell .numero input:hover {
+  color: white;
+  background-color: #2098D1;
+}
+/* line 72, ../src/css/sudoku.scss */
+#sudoku-game .cell span.numero {
+  color: #333;
+}
+/* line 76, ../src/css/sudoku.scss */
 #sudoku-game .line {
   position: absolute;
   z-index: 1;
 }
-/* line 40, ../src/css/sudoku.scss */
+/* line 79, ../src/css/sudoku.scss */
 #sudoku-game .line.vr-line {
   top: 0;
   bottom: 0;
@@ -45,11 +93,11 @@
   background-color: black;
   left: calc((100%/3) - 2px);
 }
-/* line 47, ../src/css/sudoku.scss */
+/* line 86, ../src/css/sudoku.scss */
 #sudoku-game .line.vr-line + .vr-line {
   left: calc((200%/3) - 2px);
 }
-/* line 51, ../src/css/sudoku.scss */
+/* line 90, ../src/css/sudoku.scss */
 #sudoku-game .line.hr-line {
   left: 0;
   right: 0;
@@ -58,23 +106,23 @@
   background-color: black;
   top: calc((100%/3) - 2px);
 }
-/* line 58, ../src/css/sudoku.scss */
+/* line 97, ../src/css/sudoku.scss */
 #sudoku-game .line.hr-line + .hr-line {
   top: calc((200%/3) - 2px);
 }
-/* line 64, ../src/css/sudoku.scss */
+/* line 103, ../src/css/sudoku.scss */
 #sudoku-game:after {
   content: "";
   display: block;
   clear: both;
 }
 
-/* line 71, ../src/css/sudoku.scss */
+/* line 110, ../src/css/sudoku.scss */
 #game-actions {
   text-align: center;
   padding: 20px;
 }
-/* line 74, ../src/css/sudoku.scss */
+/* line 113, ../src/css/sudoku.scss */
 #game-actions button {
   margin: 10px;
 }

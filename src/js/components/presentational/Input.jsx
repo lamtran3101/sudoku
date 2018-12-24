@@ -1,27 +1,26 @@
-import React from "react";
+import React from 'react';
 import PropTypes from "prop-types";
 
-const Input = ({ label, text, type, id, value, handleChange }) => (
-    <div className="form-group">
-        <label htmlFor={label}>{text}</label>
-        <input
-            type={type}
-            className="form-control"
-            id={id}
-            value={value}
-            onChange={handleChange}
-            required
-        />
+const Input = ({rowId, colId, numero, handleChange, status}) => (
+    <div id={"cell-" + rowId + "-" + colId} className={"cell hvr-fade " + (status !== -1 ? "" : "error")}>
+        <div className="cell-content">
+            <div className="numero numero-input">
+                <input
+                       id={"cell-input-" + rowId + "-" + colId}
+                       value={numero}
+                       onChange={handleChange} maxLength={1} type="text"/>
+            </div>
+        </div>
     </div>
 );
 
-Input.propTypes = {
-    label: PropTypes.string.isRequired,
-    text: PropTypes.string.isRequired,
-    type: PropTypes.string.isRequired,
-    id: PropTypes.string.isRequired,
+Input.prototype = {
+    numero: PropTypes.number.isRequired,
     value: PropTypes.string.isRequired,
-    handleChange: PropTypes.func.isRequired
-};
+    handleChange: PropTypes.func.isRequired,
+    rowId: PropTypes.number.isRequired,
+    colId: PropTypes.number.isRequired,
+    status: PropTypes.number.isRequired,
+}
 
 export default Input;

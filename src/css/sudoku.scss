@@ -1,39 +1,78 @@
 @import "compass/css3";
-
-
 $borderColor: #ededed;
-$cellWidth: 90px;
-$gameWidth: 810px;
-
+$spanColor: #333;
+$inputColor: #888;
+$hoverColor:#2098D1;
+$cellWidth: 60px;
+$gameWidth: 540px;
 #sudoku-game {
     position: relative;
     box-sizing: border-box;
     * {
         box-sizing: border-box;
     }
-    width: calc(270px + 50vw);
-    height: calc(270px + 50vw);
+    width: calc(270px + 30vw);
+    height: calc(270px + 30vw);
     max-width: $gameWidth;
     max-height: $gameWidth;
     margin: auto;
+    border :3px solid black;
     .cell {
-        width: calc(30px + 50vw/9);
-        height: calc(30px + 50vw/9);
+        width: (100% / 9);
+        height: auto;
         max-width: $cellWidth;
         max-height: $cellWidth;
         font-size: 32px;
-        border: 1px solid $borderColor;
+        border-left: 1px solid $borderColor;
+        border-bottom: 1px solid $borderColor;
         float: left;
-        display: table;
+        display: block;
         vertical-align: middle;
         text-align: center;
         cursor: pointer;
-        span {
-            display: table-cell;
-            vertical-align: middle;
+        .cell-content {
+            display: block;
+            width: 100%;
+            padding-top: 100%;
+        }
+        
+        .numero {
+            position: absolute;
+            left: 0;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            @include display-flex;
+            @include justify-content(center);
+            @include align-items(center);
+            @include user-select(none);
+            input {
+                margin: 0;
+                border: 0;
+                text-align: center;
+                font-size: 32px;
+                height: 100%;
+                transition: none;
+                cursor: pointer;
+                font-family: inherit;
+                box-shadow: none;
+                color: $inputColor;
+                &:focus, &:active, &:hover {
+                    box-shadow: none;
+                    border: 0;
+                    
+                }
+                &:focus, &:hover {
+                    color: white;
+                    background-color: $hoverColor;
+                }
+    
+            }
+        }
+        span.numero {
+            color: $spanColor;
         }
     }
-    
     .line {
         position: absolute;
         z-index: 1;

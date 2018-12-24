@@ -10,6 +10,6 @@ if(index) {
     const grid = SudokuSolver.generate();
     const grid2 = SudokuSolver.carve(grid, 55);
 
-    render(<GameContainer grid={grid2} />, index)
+    render(<GameContainer grid={grid2} solution={grid} />, index)
 }
 

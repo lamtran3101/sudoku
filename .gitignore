@@ -1,2 +1,4 @@
 node_modules
 .idea
+dist/*update.json
+dist/*update.js
